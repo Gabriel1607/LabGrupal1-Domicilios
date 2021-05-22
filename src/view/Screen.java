@@ -19,5 +19,5 @@ public abstract class Screen {
 		  Pay = app.loadImage ("img/Pay.png");
 		  History = app.loadImage ("img/History.png");
 	  }
-	  public abstract void draw (PApplet app);
+	  public abstract void draw ();
 }

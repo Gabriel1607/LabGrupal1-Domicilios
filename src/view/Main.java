@@ -24,6 +24,7 @@ Controller controller;
 	@Override
 	public void draw() {
 	controller.changeScreen();
+	System.out.println(mouseX+" "+mouseY);
 	}
 	public void mousePressed() {
 		controller.mousePressed();

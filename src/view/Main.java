@@ -1,5 +1,5 @@
 package view;
-import controller.ControllerLogIn;
+import controller.Controller;
 import processing.core.PApplet;
 
 public class Main extends PApplet{
@@ -14,15 +14,15 @@ public class Main extends PApplet{
 		size(414,896);
 	}
 	
-ControllerLogIn loginCtrl;
+Controller controller;
 	
 	@Override
 	public void setup() {
-	loginCtrl = new ControllerLogIn(this, null);
+	controller = new Controller(this, null);
 	}
 	
 	@Override
 	public void draw() {
-	loginCtrl.changeScreen();
+	controller.changeScreen();
 	}
 }

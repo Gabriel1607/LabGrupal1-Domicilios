@@ -18,4 +18,7 @@ public class Controller {
 	public void changeScreen() {
 		logic.changeScreen();
 	}
+	public void mousePressed() {
+		logic.mousePressed();
+	}
 }

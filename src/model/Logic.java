@@ -17,13 +17,19 @@ public class Logic {
 	HomeScreen home;
 	AddExtraScreen extra;
 	CompletePayScreen pay;
-	OrderSummaryScreen orderSummary;
+	OrderSummaryScreen summary;
 	OrderHistoryScreen history;
 	
 	public Logic(PApplet app) {
 		this.app=app;
 		screen = 1;
 		login = new LogInScreen(app);
+		register = new RegisterScreen(app);
+		home = new HomeScreen(app);
+		extra = new AddExtraScreen(app);
+		pay = new CompletePayScreen(app);
+		summary = new OrderSummaryScreen(app);
+		history = new OrderHistoryScreen(app);
 	}
 	
 	public void changeScreen() {
@@ -44,12 +50,15 @@ public class Logic {
 			pay.draw();
 			break;
 		case 5:
-			orderSummary.draw();
+			summary.draw();
 			break;
 		case 6:
 			history.draw();
 			break;
 
 		}
+	}
+	public void mousePressed() {
+		screen++;
 	}
 }

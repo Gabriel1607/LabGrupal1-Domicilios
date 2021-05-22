@@ -25,4 +25,7 @@ Controller controller;
 	public void draw() {
 	controller.changeScreen();
 	}
+	public void mousePressed() {
+		controller.mousePressed();
+	}
 }

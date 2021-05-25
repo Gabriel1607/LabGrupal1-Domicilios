@@ -68,6 +68,9 @@ public class Logic {
 			//De Login a Register
 			if((257<app.mouseX&&app.mouseX<327)&&(607<app.mouseY&&app.mouseY<616)) {
 				screen=2;
+				login.hide();
+				register.textFields();
+
 			}
 			//De Login a Home
 			if((63<app.mouseX&&app.mouseX<348)&&(773<app.mouseY&&app.mouseY<833)) {
@@ -78,10 +81,14 @@ public class Logic {
 			//De Register a Login "Iniciar sesión"
 			if((222<app.mouseX&&app.mouseX<300)&&(677<app.mouseY&&app.mouseY<689)) {
 				screen=1;
+				login.textFields();
+				register.hide();
 			}
 			//De Register a Login "Registrarse"
 			if((63<app.mouseX&&app.mouseX<348)&&(773<app.mouseY&&app.mouseY<833)) {
 				screen=1;
+				login.textFields();
+				register.hide();
 			}
 			break;
 		case 3:

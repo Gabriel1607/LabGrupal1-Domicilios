@@ -32,6 +32,8 @@ public class Logic {
 		summary = new OrderSummaryScreen(app);
 		history = new OrderHistoryScreen(app);
 		validPay=false;
+		
+		login.textFields();
 	}
 	
 	public void changeScreen() {

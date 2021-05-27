@@ -1,6 +1,7 @@
 package model;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 import view.AddExtraScreen;
 import view.CompletePayScreen;
 import view.HomeScreen;
@@ -20,6 +21,8 @@ public class Logic {
 	OrderSummaryScreen summary;
 	OrderHistoryScreen history;
 	boolean validPay;
+	boolean addChips;
+	PImage chips;
 	
 	public Logic(PApplet app) {
 		this.app=app;
@@ -32,6 +35,8 @@ public class Logic {
 		summary = new OrderSummaryScreen(app);
 		history = new OrderHistoryScreen(app);
 		validPay=false;
+		addChips=false;
+		chips = app.loadImage ("img/chips.png");
 		
 		login.textFields();
 		register.textFields();
@@ -51,6 +56,11 @@ public class Logic {
 			break;
 		case 4:
 			extra.draw();
+			
+			if(addChips) {
+				app.image(chips,0,0);
+			}
+			
 			if(validPay) {
 			pay.draw();
 			}
@@ -133,6 +143,10 @@ public class Logic {
 			//De Extra a Home
 			if((37<app.mouseX&&app.mouseX<57)&&(94<app.mouseY&&app.mouseY<106)) {
 				screen=3;
+			}
+			//Añade papitas
+			if((39<app.mouseX&&app.mouseX<376)&&(415<app.mouseY&&app.mouseY<469)) {
+				addChips=true;
 			}
 			//De Extra a Extra+Pay
 			if((63<app.mouseX&&app.mouseX<348)&&(787<app.mouseY&&app.mouseY<845)) {

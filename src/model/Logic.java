@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
 import view.AddExtraScreen;
@@ -12,20 +13,21 @@ import view.RegisterScreen;
 
 public class Logic {
 	private PApplet app ;
-	int screen;
-	LogInScreen login;
-	RegisterScreen register;
-	HomeScreen home;
-	AddExtraScreen extra;
-	CompletePayScreen pay;
-	OrderSummaryScreen summary;
-	OrderHistoryScreen history;
-	boolean validPay;
-	boolean addChips;
-	boolean addOnionRings;
-	boolean addCheese;
-	boolean addSuero;
-	PImage chips, onionRings, cheese, suero;
+	private int screen;
+	private LogInScreen login;
+	private RegisterScreen register;
+	private HomeScreen home;
+	private AddExtraScreen extra;
+	private CompletePayScreen pay;
+	private OrderSummaryScreen summary;
+	private OrderHistoryScreen history;
+	private boolean validPay;
+	private boolean addChips;
+	private boolean addOnionRings;
+	private boolean addCheese;
+	private boolean addSuero;
+	private PImage chips, onionRings, cheese, suero;
+	private ArrayList<User> userList;
 	
 	public Logic(PApplet app) {
 		this.app=app;
@@ -51,6 +53,8 @@ public class Logic {
 		login.textFields();
 		register.textFields();
 		register.hide();
+		
+		userList = new ArrayList<User>();
 	}
 	
 	public void changeScreen() {
@@ -199,6 +203,9 @@ public class Logic {
 			}
 			break;
 		}
-		
+	}
+	
+	public void registerUser() {
+		userList.add(new User(register.getName(), register.getMail(), register.getPass()));
 	}
 }

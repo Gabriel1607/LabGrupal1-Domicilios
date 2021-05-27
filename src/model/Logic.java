@@ -79,6 +79,14 @@ public class Logic {
 				app.image(onionRings,0,0);
 			}
 			
+			if(addCheese) {
+				app.image(cheese,0,0);
+			}
+			
+			if(addSuero) {
+				app.image(suero,0,0);
+			}
+			
 			if(validPay) {
 			pay.draw();
 			}
@@ -161,6 +169,10 @@ public class Logic {
 			//De Extra a Home
 			if((37<app.mouseX&&app.mouseX<57)&&(94<app.mouseY&&app.mouseY<106)) {
 				screen=3;
+				addChips = false;
+				addOnionRings = false;
+				addCheese = false;
+				addSuero = false; 
 			}
 			//Añade papitas
 			if((39<app.mouseX&&app.mouseX<376)&&(415<app.mouseY&&app.mouseY<469)) {
@@ -172,8 +184,18 @@ public class Logic {
 				addOnionRings=true;
 				addChips = false;
 			}
+			//Añade queso
+			if((39<app.mouseX&&app.mouseX<376)&&(605<app.mouseY&&app.mouseY<659)) {
+				addCheese=true;
+				addSuero = false;
+			}
+			//Añade suero
+			if((39<app.mouseX&&app.mouseX<376)&&(677<app.mouseY&&app.mouseY<731)) {
+				addSuero=true;
+				addCheese = false;
+			}
 			//De Extra a Extra+Pay
-			if(addChips || addOnionRings) {
+			if(addChips || addOnionRings && addCheese || addSuero ) {
 				if((63<app.mouseX&&app.mouseX<348)&&(787<app.mouseY&&app.mouseY<845)) {
 					validPay=true;
 				}

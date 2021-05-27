@@ -22,7 +22,10 @@ public class Logic {
 	OrderHistoryScreen history;
 	boolean validPay;
 	boolean addChips;
-	PImage chips;
+	boolean addOnionRings;
+	boolean addCheese;
+	boolean addSuero;
+	PImage chips, onionRings, cheese, suero;
 	
 	public Logic(PApplet app) {
 		this.app=app;
@@ -36,7 +39,14 @@ public class Logic {
 		history = new OrderHistoryScreen(app);
 		validPay=false;
 		addChips=false;
+		addOnionRings = false;
+		addCheese = false;
+		addSuero = false;
+		
 		chips = app.loadImage ("img/chips.png");
+		onionRings = app.loadImage ("img/Onion Rings.png");
+		cheese = app.loadImage ("img/Cheese.png");
+		suero = app.loadImage ("img/Suero.png");
 		
 		login.textFields();
 		register.textFields();
@@ -59,6 +69,10 @@ public class Logic {
 			
 			if(addChips) {
 				app.image(chips,0,0);
+			}
+			
+			if(addOnionRings) {
+				app.image(onionRings,0,0);
 			}
 			
 			if(validPay) {
@@ -147,11 +161,20 @@ public class Logic {
 			//Añade papitas
 			if((39<app.mouseX&&app.mouseX<376)&&(415<app.mouseY&&app.mouseY<469)) {
 				addChips=true;
+				addOnionRings = false;
+			}
+			//Añade anillos de cebolla
+			if((39<app.mouseX&&app.mouseX<376)&&(487<app.mouseY&&app.mouseY<541)) {
+				addOnionRings=true;
+				addChips = false;
 			}
 			//De Extra a Extra+Pay
-			if((63<app.mouseX&&app.mouseX<348)&&(787<app.mouseY&&app.mouseY<845)) {
-				validPay=true;
+			if(addChips || addOnionRings) {
+				if((63<app.mouseX&&app.mouseX<348)&&(787<app.mouseY&&app.mouseY<845)) {
+					validPay=true;
+				}
 			}
+
 			//De Extra+Pay a Summary
 			if((validPay)&&(65<app.mouseX&&app.mouseX<348)&&(736<app.mouseY&&app.mouseY<789)) {
 				validPay=false;

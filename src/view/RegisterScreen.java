@@ -6,6 +6,11 @@ import processing.core.PApplet;
 
 public class RegisterScreen extends Screen {
 	ControlP5 cp5;
+	
+	private String name;
+	private String mail;
+	private String pass;
+	
 	 public RegisterScreen(PApplet app) {
 	        super(app);
 	        cp5= new ControlP5 (app);
@@ -65,5 +70,22 @@ public class RegisterScreen extends Screen {
 		cp5.get(Textfield.class,"correo").clear();
 		cp5.get(Textfield.class,"contraseña").clear();
 	}
+	
+	public void textfieldValues() {
+		name = cp5.get(Textfield.class,"nombre").getText();
+		mail = cp5.get(Textfield.class,"correo").getText();
+		pass = cp5.get(Textfield.class,"contraseña").getText();
+	}
 
+	public String getName() {
+		return name;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public String getPass() {
+		return pass;
+	}
 }

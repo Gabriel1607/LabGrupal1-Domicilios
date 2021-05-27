@@ -34,6 +34,8 @@ public class Logic {
 		validPay=false;
 		
 		login.textFields();
+		register.textFields();
+		register.hide();
 	}
 	
 	public void changeScreen() {
@@ -68,27 +70,32 @@ public class Logic {
 			//De Login a Register
 			if((257<app.mouseX&&app.mouseX<327)&&(607<app.mouseY&&app.mouseY<616)) {
 				screen=2;
+				login.clear();
 				login.hide();
-				register.textFields();
+				register.show();
 
 			}
 			//De Login a Home
 			if((63<app.mouseX&&app.mouseX<348)&&(773<app.mouseY&&app.mouseY<833)) {
 				screen=3;
+				login.clear();
+				login.hide();
 			}
 			break;
 		case 2:
 			//De Register a Login "Iniciar sesión"
 			if((222<app.mouseX&&app.mouseX<300)&&(677<app.mouseY&&app.mouseY<689)) {
 				screen=1;
-				login.textFields();
+				register.clear();
 				register.hide();
+				login.show();
 			}
 			//De Register a Login "Registrarse"
 			if((63<app.mouseX&&app.mouseX<348)&&(773<app.mouseY&&app.mouseY<833)) {
 				screen=1;
-				login.textFields();
+				register.clear();
 				register.hide();
+				login.show();
 			}
 			break;
 		case 3:
@@ -118,7 +125,8 @@ public class Logic {
 			}
 			//De Home a Login (Cerrar sesion)
 			if((296<app.mouseX&&app.mouseX<320)&&(830<app.mouseY&&app.mouseY<857)) {
-				screen=1;	
+				screen=1;
+				login.show();
 			}
 			break;
 		case 4:
@@ -149,7 +157,8 @@ public class Logic {
 			}
 			//De History a Login (Cerrar sesion)
 			if((296<app.mouseX&&app.mouseX<320)&&(830<app.mouseY&&app.mouseY<857)) {
-				screen=1;	
+				screen=1;
+				login.show();
 			}
 			break;
 		}

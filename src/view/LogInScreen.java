@@ -36,7 +36,9 @@ public class LogInScreen extends Screen {
 		 .setColor(app.color(62,36,32))
 		 .setColorBackground(app.color(0,0,0,1))
 		 .setColorForeground(app.color(0,0,0,1))
+		 .setPasswordMode(true)
 		 .getCaptionLabel().setColor(app.color(255,235,207));
+		 
 
 	}
 	
@@ -44,5 +46,12 @@ public class LogInScreen extends Screen {
 		cp5.get("correo").hide();
 		cp5.get("contraseña").hide();
 	}
-
+	public void show() {
+		cp5.get("correo").show();
+		cp5.get("contraseña").show();
+	}
+public void clear() {
+	cp5.get(Textfield.class,"correo").clear();
+	cp5.get(Textfield.class,"contraseña").clear();
+}
 }

@@ -1,6 +1,7 @@
 package view;
 
 import controlP5.ControlP5;
+import controlP5.Textfield;
 import processing.core.PApplet;
 
 public class RegisterScreen extends Screen {
@@ -53,6 +54,16 @@ public class RegisterScreen extends Screen {
 		cp5.get("nombre").hide();
 		cp5.get("correo").hide();
 		cp5.get("contraseña").hide();
+	}
+	public void show() {
+		cp5.get("nombre").show();
+		cp5.get("correo").show();
+		cp5.get("contraseña").show();
+	}
+	public void clear() {
+		cp5.get(Textfield.class,"nombre").clear();
+		cp5.get(Textfield.class,"correo").clear();
+		cp5.get(Textfield.class,"contraseña").clear();
 	}
 
 }

@@ -58,6 +58,7 @@ public class Logic {
 	}
 	
 	public void changeScreen() {
+		//System.out.println(userList.size());
 		switch(screen) {
 		case 1:
 			login.draw();
@@ -128,11 +129,15 @@ public class Logic {
 			}
 			//De Register a Login "Registrarse"
 			if((63<app.mouseX&&app.mouseX<348)&&(773<app.mouseY&&app.mouseY<833)) {
+				if(!register.isNull()) {
+				register.textfieldValues();
+				registerUser();
+				System.out.println(userList.get(0).getName());
 				screen=1;
 				register.clear();
 				register.hide();
 				login.show();
-			}
+			}}
 			break;
 		case 3:
 			//De Home a Corral
@@ -232,6 +237,9 @@ public class Logic {
 	}
 	
 	public void registerUser() {
+		
 		userList.add(new User(register.getName(), register.getMail(), register.getPass()));
+		System.out.println("entramossssssss");
+		
 	}
 }

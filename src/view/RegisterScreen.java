@@ -1,5 +1,7 @@
 package view;
 
+import javax.swing.JOptionPane;
+
 import controlP5.ControlP5;
 import controlP5.Textfield;
 import processing.core.PApplet;
@@ -75,6 +77,17 @@ public class RegisterScreen extends Screen {
 		name = cp5.get(Textfield.class,"nombre").getText();
 		mail = cp5.get(Textfield.class,"correo").getText();
 		pass = cp5.get(Textfield.class,"contraseña").getText();
+	}
+	public boolean isNull() {
+		if(cp5.get(Textfield.class,"nombre").getText().trim().isEmpty() ||
+		   cp5.get(Textfield.class,"correo").getText().trim().isEmpty() ||
+		   cp5.get(Textfield.class,"contraseña").getText().trim().isEmpty())
+	        {
+			JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos.", "Woops", JOptionPane.ERROR_MESSAGE);
+	           return true;
+	        }else {
+	        	return false;
+	        }
 	}
 
 	public String getName() {

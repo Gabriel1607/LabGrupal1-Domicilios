@@ -176,24 +176,28 @@ public class Logic {
 			}
 			//Añade papitas
 			if((39<app.mouseX&&app.mouseX<376)&&(415<app.mouseY&&app.mouseY<469)) {
+				if(!validPay) {
 				addChips=true;
 				addOnionRings = false;
-			}
+			}}
 			//Añade anillos de cebolla
 			if((39<app.mouseX&&app.mouseX<376)&&(487<app.mouseY&&app.mouseY<541)) {
+				if(!validPay) {
 				addOnionRings=true;
 				addChips = false;
-			}
+			}}
 			//Añade queso
 			if((39<app.mouseX&&app.mouseX<376)&&(605<app.mouseY&&app.mouseY<659)) {
+				if(!validPay) {
 				addCheese=true;
 				addSuero = false;
-			}
+			}}
 			//Añade suero
 			if((39<app.mouseX&&app.mouseX<376)&&(677<app.mouseY&&app.mouseY<731)) {
+				if(!validPay) {
 				addSuero=true;
 				addCheese = false;
-			}
+			}}
 			//De Extra a Extra+Pay
 			if(addChips || addOnionRings && addCheese || addSuero ) {
 				if((63<app.mouseX&&app.mouseX<348)&&(787<app.mouseY&&app.mouseY<845)) {

@@ -16,7 +16,7 @@ public class Order {
 		this.orderDate = orderDate;
 		this.dishPrice = dishPrice;
 		
-		extraList = new Extra[1];
+		extraList = new Extra[2];
 	}
 
 	public String getDishName() {

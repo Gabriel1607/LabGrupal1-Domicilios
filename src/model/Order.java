@@ -1,21 +1,22 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Order {
 	private String dishName;
 	private Date orderDate;
+	private double dishPrice;
 	
-	private ArrayList<Extra> extras;
+	private Extra[] extraList;
 	
 	private double totalPrice;
 	
-	public Order(String dishName, Date orderDate) {
+	public Order(String dishName, Date orderDate, double dishPrice) {
 		this.dishName = dishName;
 		this.orderDate = orderDate;
+		this.dishPrice = dishPrice;
 		
-		extras = new ArrayList<Extra>();
+		extraList = new Extra[1];
 	}
 
 	public String getDishName() {
@@ -25,20 +26,24 @@ public class Order {
 	public Date getOrderDate() {
 		return orderDate;
 	}
-
-	public ArrayList<Extra> getExtras() {
-		return extras;
+	
+	public double getDishPrice() {
+		return dishPrice;
 	}
 
 	public double getTotalPrice() {
 		return totalPrice;
 	}
 	
-	public void addExtra(String en, double ep) {
-		extras.add(new Extra(en, ep));
+	public void addExtra1 (String en, double ep) {
+		extraList[0] = new Extra(en, ep);
+	}
+	
+	public void addExtra2 (String en, double ep) {
+		extraList[1] = new Extra(en, ep);
 	}
 	
 	public void calculateTotal() {
-		
+		totalPrice = extraList[0].getExtraPrice() + extraList[1].getExtraPrice() + dishPrice;
 	}
 }

@@ -42,8 +42,8 @@ public class User {
 		this.password = password;
 	}
 	
-	public void newOrder(String dn, Date od) {
-		orderList.add(new Order(dn, od));
+	public void newOrder(String dn, Date od, double dp) {
+		orderList.add(new Order(dn, od, dp));
 	}
 
 	public ArrayList<Order> getOrderList() {

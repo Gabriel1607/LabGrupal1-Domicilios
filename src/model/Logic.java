@@ -246,19 +246,124 @@ public class Logic {
 					validPay=true;
 					
 					for(int i = 0; i < userList.size(); i++) {
+						
+						//Se crea orden con Corral
 						if(chooseCorral) {
-							userList.get(i).newOrder("Corral", date);
+							userList.get(i).newOrder("Corral", date, 14000);
+							
+							//extras: papas y queso
+							if(addChips && addCheese) {
+								userList.get(i).getOrderList().get(i).addExtra1("Papas francesas", 5500);
+								userList.get(i).getOrderList().get(i).addExtra2("Queso fundido", 4500);
+							}
+							
+							//extras: papas y suero
+							else if(addChips && addSuero) {
+								userList.get(i).getOrderList().get(i).addExtra1("Papas francesas", 5500);
+								userList.get(i).getOrderList().get(i).addExtra2("Suero costeño", 3000);
+							}
+							
+							//extras: anillos y queso
+							else if(addOnionRings && addCheese) {
+								userList.get(i).getOrderList().get(i).addExtra1("Anillos de cebolla", 7500);
+								userList.get(i).getOrderList().get(i).addExtra2("Queso fundido", 4500);
+							}
+							
+							//extras: anillos y suero
+							else if(addOnionRings && addSuero) {
+								userList.get(i).getOrderList().get(i).addExtra1("Anillos de cebolla", 7500);
+								userList.get(i).getOrderList().get(i).addExtra2("Suero costeño", 3000);
+							}
 						}
+						
+						//Se crea orden con Corral queso
 						else if(chooseCheese) {
-							userList.get(i).newOrder("Corral queso", date);
+							userList.get(i).newOrder("Corral queso", date, 16000);
+
+							//extras: papas y queso
+							if(addChips && addCheese) {
+								userList.get(i).getOrderList().get(i).addExtra1("Papas francesas", 5500);
+								userList.get(i).getOrderList().get(i).addExtra2("Queso fundido", 4500);
+							}
+							
+							//extras: papas y suero
+							else if(addChips && addSuero) {
+								userList.get(i).getOrderList().get(i).addExtra1("Papas francesas", 5500);
+								userList.get(i).getOrderList().get(i).addExtra2("Suero costeño", 3000);
+							}
+							
+							//extras: anillos y queso
+							else if(addOnionRings && addCheese) {
+								userList.get(i).getOrderList().get(i).addExtra1("Anillos de cebolla", 7500);
+								userList.get(i).getOrderList().get(i).addExtra2("Queso fundido", 4500);
+							}
+							
+							//extras: anillos y suero
+							else if(addOnionRings && addSuero) {
+								userList.get(i).getOrderList().get(i).addExtra1("Anillos de cebolla", 7500);
+								userList.get(i).getOrderList().get(i).addExtra2("Suero costeño", 3000);
+							}
 						}
+						
+						//Se crea orden con Corral tocineta
 						else if(chooseBacon) {
-							userList.get(i).newOrder("Corral tocineta", date);
+							userList.get(i).newOrder("Corral tocineta", date, 19000);
+
+							//extras: papas y queso
+							if(addChips && addCheese) {
+								userList.get(i).getOrderList().get(i).addExtra1("Papas francesas", 5500);
+								userList.get(i).getOrderList().get(i).addExtra2("Queso fundido", 4500);
+							}
+							
+							//extras: papas y suero
+							else if(addChips && addSuero) {
+								userList.get(i).getOrderList().get(i).addExtra1("Papas francesas", 5500);
+								userList.get(i).getOrderList().get(i).addExtra2("Suero costeño", 3000);
+							}
+							
+							//extras: anillos y queso
+							else if(addOnionRings && addCheese) {
+								userList.get(i).getOrderList().get(i).addExtra1("Anillos de cebolla", 7500);
+								userList.get(i).getOrderList().get(i).addExtra2("Queso fundido", 4500);
+							}
+							
+							//extras: anillos y suero
+							else if(addOnionRings && addSuero) {
+								userList.get(i).getOrderList().get(i).addExtra1("Anillos de cebolla", 7500);
+								userList.get(i).getOrderList().get(i).addExtra2("Suero costeño", 3000);
+							}
 						}
+						
+						//Se crea orden con Corral pollo
 						else if(chooseChicken) {
-							userList.get(i).newOrder("Corral pollo", date);
+							userList.get(i).newOrder("Corral pollo", date, 15000);
+
+							//extras: papas y queso
+							if(addChips && addCheese) {
+								userList.get(i).getOrderList().get(i).addExtra1("Papas francesas", 5500);
+								userList.get(i).getOrderList().get(i).addExtra2("Queso fundido", 4500);
+							}
+							
+							//extras: papas y suero
+							else if(addChips && addSuero) {
+								userList.get(i).getOrderList().get(i).addExtra1("Papas francesas", 5500);
+								userList.get(i).getOrderList().get(i).addExtra2("Suero costeño", 3000);
+							}
+							
+							//extras: anillos y queso
+							else if(addOnionRings && addCheese) {
+								userList.get(i).getOrderList().get(i).addExtra1("Anillos de cebolla", 7500);
+								userList.get(i).getOrderList().get(i).addExtra2("Queso fundido", 4500);
+							}
+							
+							//extras: anillos y suero
+							else if(addOnionRings && addSuero) {
+								userList.get(i).getOrderList().get(i).addExtra1("Anillos de cebolla", 7500);
+								userList.get(i).getOrderList().get(i).addExtra2("Suero costeño", 3000);
+							}
 						}
 					}
+					
 				}
 			}
 

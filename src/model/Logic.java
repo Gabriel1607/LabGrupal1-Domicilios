@@ -1,6 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
 import processing.core.PApplet;
 import processing.core.PImage;
 import view.AddExtraScreen;
@@ -26,6 +29,7 @@ public class Logic {
 	private boolean addOnionRings;
 	private boolean addCheese;
 	private boolean addSuero;
+	private boolean loginSucc;
 	private PImage chips, onionRings, cheese, suero;
 	private ArrayList<User> userList;
 	
@@ -44,6 +48,7 @@ public class Logic {
 		addOnionRings = false;
 		addCheese = false;
 		addSuero = false;
+		loginSucc=false;
 		
 		chips = app.loadImage ("img/chips.png");
 		onionRings = app.loadImage ("img/Onion Rings.png");
@@ -114,9 +119,23 @@ public class Logic {
 			}
 			//De Login a Home
 			if((63<app.mouseX&&app.mouseX<348)&&(773<app.mouseY&&app.mouseY<833)) {
-				screen=3;
-				login.clear();
-				login.hide();
+				login.textfieldValues();
+				//System.out.println(userList.get(0).getEmail());
+				//System.out.println(userList.get(0).getPassword());
+				//System.out.println(login.getMail());
+				//System.out.println(login.getPass());
+				for (int i = 0; i < userList.size(); i++) {
+					if((userList.get(i).getEmail().equals(login.getMail()))&&
+					   (userList.get(i).getPassword().equals(login.getPass()))) {
+						screen=3;
+						login.clear();
+						login.hide();
+						loginSucc=true;
+					}
+				}if(!loginSucc) {
+					JOptionPane.showMessageDialog(null, "El usuario no está registrado", "Woops", JOptionPane.ERROR_MESSAGE);
+				}
+				
 			}
 			break;
 		case 2:
@@ -132,7 +151,6 @@ public class Logic {
 				if(!register.isNull()) {
 				register.textfieldValues();
 				registerUser();
-				System.out.println(userList.get(0).getName());
 				screen=1;
 				register.clear();
 				register.hide();
@@ -239,7 +257,10 @@ public class Logic {
 	public void registerUser() {
 		
 		userList.add(new User(register.getName(), register.getMail(), register.getPass()));
-		System.out.println("entramossssssss");
+		
+		
+	}
+	public void logUser() {
 		
 	}
 }

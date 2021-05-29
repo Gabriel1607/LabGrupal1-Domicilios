@@ -6,7 +6,12 @@ import processing.core.PApplet;
 
 public class LogInScreen extends Screen {
 	ControlP5 cp5;
-	 public LogInScreen(PApplet app) {
+	private String mail;
+	private String pass;
+	
+	
+
+	public LogInScreen(PApplet app) {
 	        super(app);
 	        cp5= new ControlP5 (app);
 	    }
@@ -53,5 +58,16 @@ public class LogInScreen extends Screen {
 public void clear() {
 	cp5.get(Textfield.class,"correo").clear();
 	cp5.get(Textfield.class,"contraseña").clear();
+}
+public void textfieldValues() {
+	mail = cp5.get(Textfield.class,"correo").getText();
+	pass = cp5.get(Textfield.class,"contraseña").getText();
+}
+public String getMail() {
+	return mail;
+}
+
+public String getPass() {
+	return pass;
 }
 }

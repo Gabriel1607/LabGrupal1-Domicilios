@@ -2,9 +2,9 @@ package model;
 
 public class Extra {
 	private String extraName;
-	private double extraPrice;
+	private int extraPrice;
 	
-	public Extra(String extraName, double extraPrice) {
+	public Extra(String extraName, int extraPrice) {
 		this.extraName = extraName;
 		this.extraPrice = extraPrice;
 	}
@@ -13,7 +13,7 @@ public class Extra {
 		return extraName;
 	}
 
-	public double getExtraPrice() {
+	public int getExtraPrice() {
 		return extraPrice;
 	}
 }

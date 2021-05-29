@@ -5,13 +5,11 @@ import java.util.Date;
 public class Order {
 	private String dishName;
 	private Date orderDate;
-	private double dishPrice;
+	private int dishPrice;
 	
 	private Extra[] extraList;
 	
-	private double totalPrice;
-	
-	public Order(String dishName, Date orderDate, double dishPrice) {
+	public Order(String dishName, Date orderDate, int dishPrice) {
 		this.dishName = dishName;
 		this.orderDate = orderDate;
 		this.dishPrice = dishPrice;
@@ -27,23 +25,23 @@ public class Order {
 		return orderDate;
 	}
 	
-	public double getDishPrice() {
+	public int getDishPrice() {
 		return dishPrice;
 	}
-
-	public double getTotalPrice() {
-		return totalPrice;
+	
+	public int getExtraPrice(int x) {
+		return extraList[x].getExtraPrice();
 	}
 	
-	public void addExtra1 (String en, double ep) {
+	public void addExtra1 (String en, int ep) {
 		extraList[0] = new Extra(en, ep);
 	}
 	
-	public void addExtra2 (String en, double ep) {
+	public void addExtra2 (String en, int ep) {
 		extraList[1] = new Extra(en, ep);
 	}
 	
-	public void calculateTotal() {
-		totalPrice = extraList[0].getExtraPrice() + extraList[1].getExtraPrice() + dishPrice;
+	public int calculateTotal() {
+		return extraList[0].getExtraPrice() + extraList[1].getExtraPrice() + dishPrice;
 	}
 }

@@ -118,7 +118,8 @@ public class Logic {
 			app.textFont(font);
 			app.fill(62,36,32);
 			for(int i = 0; i < userList.size(); i++) {
-				app.text(userList.size(), 121, 55);
+				app.text(userList.get(i).getOrderList().size(), 121, 57);
+				app.text(userList.get(i).getOrderList().get(i).calculateTotal(), 121, 80);
 			}
 			
 			break;
@@ -387,6 +388,14 @@ public class Logic {
 			//De Summary a Home
 			if((63<app.mouseX&&app.mouseX<348)&&(755<app.mouseY&&app.mouseY<814)) {
 				screen=3;
+				addChips = false;
+				addOnionRings = false;
+				addCheese = false;
+				addSuero = false;
+				chooseCorral = false;
+				chooseCheese = false;
+				chooseBacon = false;
+				chooseChicken = false;
 			}
 			break;
 		case 6:

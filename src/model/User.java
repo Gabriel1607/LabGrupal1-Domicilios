@@ -42,7 +42,7 @@ public class User {
 		this.password = password;
 	}
 	
-	public void newOrder(String dn, Date od, double dp) {
+	public void newOrder(String dn, Date od, int dp) {
 		orderList.add(new Order(dn, od, dp));
 	}
 

@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class User {
 	private String name;
@@ -41,8 +42,8 @@ public class User {
 		this.password = password;
 	}
 	
-	public void newOrder() {
-		
+	public void newOrder(String dn, Date od) {
+		orderList.add(new Order(dn, od));
 	}
 
 	public ArrayList<Order> getOrderList() {

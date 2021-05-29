@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -29,6 +30,11 @@ public class Logic {
 	private boolean addOnionRings;
 	private boolean addCheese;
 	private boolean addSuero;
+	private boolean chooseCorral;
+	private boolean chooseCheese;
+	private boolean chooseBacon;
+	private boolean chooseChicken;
+	private Date date;
 	private boolean loginSucc;
 	private PImage chips, onionRings, cheese, suero;
 	private ArrayList<User> userList;
@@ -48,6 +54,11 @@ public class Logic {
 		addOnionRings = false;
 		addCheese = false;
 		addSuero = false;
+		chooseCorral = false;
+		chooseCheese = false;
+		chooseBacon = false;
+		chooseChicken = false;
+		date = new Date();
 		loginSucc=false;
 		
 		chips = app.loadImage ("img/chips.png");
@@ -161,22 +172,26 @@ public class Logic {
 			//De Home a Corral
 			if((48<app.mouseX&&app.mouseX<365)&&(207<app.mouseY&&app.mouseY<321)) {
 				extra.setExtraScreen(0);
-				screen=4;	
+				screen=4;
+				chooseCorral = true;
 			}
 			//De Home a Corral Queso
 			if((48<app.mouseX&&app.mouseX<365)&&(354<app.mouseY&&app.mouseY<467)) {
 				extra.setExtraScreen(1);
-				screen=4;	
+				screen=4;
+				chooseCheese = true;
 			}
 			//De Home a Corral Tocineta
 			if((48<app.mouseX&&app.mouseX<365)&&(500<app.mouseY&&app.mouseY<613)) {
 				extra.setExtraScreen(2);
-				screen=4;	
+				screen=4;
+				chooseBacon = true;
 			}
 			//De Home a Corral Pollo
 			if((48<app.mouseX&&app.mouseX<365)&&(646<app.mouseY&&app.mouseY<760)) {
 				extra.setExtraScreen(3);
-				screen=4;	
+				screen=4;
+				chooseChicken = true;
 			}
 			//De Home a History
 			if((195<app.mouseX&&app.mouseX<215)&&(830<app.mouseY&&app.mouseY<857)) {
@@ -195,7 +210,11 @@ public class Logic {
 				addChips = false;
 				addOnionRings = false;
 				addCheese = false;
-				addSuero = false; 
+				addSuero = false;
+				chooseCorral = false;
+				chooseCheese = false;
+				chooseBacon = false;
+				chooseChicken = false;
 			}
 			//Añade papitas
 			if((39<app.mouseX&&app.mouseX<376)&&(415<app.mouseY&&app.mouseY<469)) {
@@ -225,6 +244,21 @@ public class Logic {
 			if(addChips || addOnionRings && addCheese || addSuero ) {
 				if((63<app.mouseX&&app.mouseX<348)&&(787<app.mouseY&&app.mouseY<845)) {
 					validPay=true;
+					
+					for(int i = 0; i < userList.size(); i++) {
+						if(chooseCorral) {
+							userList.get(i).newOrder("Corral", date);
+						}
+						else if(chooseCheese) {
+							userList.get(i).newOrder("Corral queso", date);
+						}
+						else if(chooseBacon) {
+							userList.get(i).newOrder("Corral tocineta", date);
+						}
+						else if(chooseChicken) {
+							userList.get(i).newOrder("Corral pollo", date);
+						}
+					}
 				}
 			}
 

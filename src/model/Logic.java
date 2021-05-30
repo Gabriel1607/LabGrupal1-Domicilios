@@ -65,7 +65,7 @@ public class Logic {
 		chooseCheese = false;
 		chooseBacon = false;
 		chooseChicken = false;
-		date = new Date();
+		date = new Date();	
 		datePrintter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		
 		
@@ -133,9 +133,9 @@ public class Logic {
 			app.textFont(font1);
 			app.fill(62,36,32);
 
-				app.text(userList.get(0).getOrderList().size(), 121, 57);
+				app.text(userList.get(0).getOrderList().size()-1, 121, 57);
 				
-				app.text(datePrintter.format(userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getOrderDate()), 112, 495);
+				app.text((userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getOrderDate().toString()), 112, 495);
 				
 				
 				app.text("$" + userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).calculateTotal(), 257, 655);
@@ -155,8 +155,8 @@ public class Logic {
 			history.draw();
 			//Lista de pedidos
 			for (int i = 0; i < userList.get(0).getOrderList().size(); i++) {
-			app.text("Pedido #"+userList.get(0).getOrderList().size()+" - "+"$" + userList.get(0).getOrderList().get(i).calculateTotal()+"\n"
-					+datePrintter.format(userList.get(i).getOrderList().get(i).getOrderDate()),138,130+(88*(i)));
+			app.text("Pedido #"+i+" - "+"$" + userList.get(0).getOrderList().get(i).getOrderTotal()+"\n"
+					+datePrintter.format(userList.get(0).getOrderList().get(i).getOrderDate()),138,130+(88*(i)));
 			}
 			break;
 
@@ -307,17 +307,21 @@ public class Logic {
 				screen=5;
 				//Se crea orden con Corral
 				if(chooseCorral) {
+					date = new Date();
 					userList.get(0).newOrder("Corral", date, 14000,0);
 				}//Se crea orden con Corral queso
 				else if(chooseCheese) {
+					date = new Date();
 					userList.get(0).newOrder("Corral queso", date, 16000,0);	
 				}
 				//Se crea orden con Corral tocineta
 				else if(chooseBacon) {
+					date = new Date();
 					userList.get(0).newOrder("Corral tocineta", date, 19000,0);
 				}	
 				//Se crea orden con Corral pollo
 				else if(chooseChicken) {
+					date = new Date();
 					userList.get(0).newOrder("Corral pollo", date, 15000,0);
 				}
 				//Variable para siempre editar la ultima orden

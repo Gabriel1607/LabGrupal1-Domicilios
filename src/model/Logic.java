@@ -128,7 +128,7 @@ public class Logic {
 				
 				app.text(datePrintter.format(userList.get(i).getOrderList().get(i).getOrderDate()), 112, 500);
 				
-				app.text("Pedido: " + userList.get(i).getOrderList().get(i).getDishName() + "     $" + userList.get(i).getOrderList().get(i).getDishPrice(), 85, 565);
+				
 				app.text("$" + userList.get(i).getOrderList().get(i).calculateTotal(), 130, 655);
 			}
 			
@@ -136,6 +136,7 @@ public class Logic {
 			app.textFont(font2);
 			app.fill(62,36,32);
 			for(int i = 0; i < userList.size(); i++) {
+				app.text("Pedido: " + userList.get(i).getOrderList().get(userList.get(i).getOrderList().size()-1).getDishName() + "     $" + userList.get(i).getOrderList().get(0).getDishPrice(), 85, 565);
 				app.text("Extra 1: " + userList.get(i).getOrderList().get(i).getExtra(0).getExtraName() + "     $" + userList.get(i).getOrderList().get(i).getExtra(0).getExtraPrice(), 85, 595);
 				app.text("Extra 2: " + userList.get(i).getOrderList().get(i).getExtra(1).getExtraName() + "     $" + userList.get(i).getOrderList().get(i).getExtra(1).getExtraPrice(), 85, 615);
 			}
@@ -161,10 +162,6 @@ public class Logic {
 			//De Login a Home
 			if((63<app.mouseX&&app.mouseX<348)&&(773<app.mouseY&&app.mouseY<833)) {
 				login.textfieldValues();
-				//System.out.println(userList.get(0).getEmail());
-				//System.out.println(userList.get(0).getPassword());
-				//System.out.println(login.getMail());
-				//System.out.println(login.getPass());
 				for (int i = 0; i < userList.size(); i++) {
 					if((userList.get(i).getEmail().equals(login.getMail()))&&
 					   (userList.get(i).getPassword().equals(login.getPass()))) {
@@ -204,24 +201,36 @@ public class Logic {
 				extra.setExtraScreen(0);
 				screen=4;
 				chooseCorral = true;
+				chooseBacon=false;
+				chooseCheese=false;
+				chooseChicken=false;
 			}
 			//De Home a Corral Queso
 			if((48<app.mouseX&&app.mouseX<365)&&(354<app.mouseY&&app.mouseY<467)) {
 				extra.setExtraScreen(1);
 				screen=4;
 				chooseCheese = true;
+				chooseBacon=false;
+				chooseChicken=false;
+				chooseCorral=false;
 			}
 			//De Home a Corral Tocineta
 			if((48<app.mouseX&&app.mouseX<365)&&(500<app.mouseY&&app.mouseY<613)) {
 				extra.setExtraScreen(2);
 				screen=4;
 				chooseBacon = true;
+				chooseCheese=false;
+				chooseChicken=false;
+				chooseCorral=false;
 			}
 			//De Home a Corral Pollo
 			if((48<app.mouseX&&app.mouseX<365)&&(646<app.mouseY&&app.mouseY<760)) {
 				extra.setExtraScreen(3);
 				screen=4;
 				chooseChicken = true;
+				chooseCheese=false;
+				chooseBacon=false;
+				chooseCorral=false;
 			}
 			//De Home a History
 			if((195<app.mouseX&&app.mouseX<215)&&(830<app.mouseY&&app.mouseY<857)) {

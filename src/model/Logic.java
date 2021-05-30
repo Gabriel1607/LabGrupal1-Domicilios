@@ -126,10 +126,10 @@ public class Logic {
 			for(int i = 0; i < userList.size(); i++) {
 				app.text(userList.get(i).getOrderList().size(), 121, 57);
 				
-				app.text(datePrintter.format(userList.get(i).getOrderList().get(i).getOrderDate()), 112, 500);
+				app.text(datePrintter.format(userList.get(i).getOrderList().get(i).getOrderDate()), 112, 495);
 				
 				
-				app.text("$" + userList.get(i).getOrderList().get(i).calculateTotal(), 130, 655);
+				app.text("$" + userList.get(i).getOrderList().get(i).calculateTotal(), 257, 655);
 			}
 			
 			//Texto pequeño
@@ -137,7 +137,7 @@ public class Logic {
 			app.fill(62,36,32);
 			for(int i = 0; i < userList.size(); i++) {
 				app.text("Pedido: " + userList.get(i).getOrderList().get(userList.get(i).getOrderList().size()-1).getDishName() + "     $" + userList.get(i).getOrderList().get(0).getDishPrice(), 85, 565);
-				app.text("Extra 1: " + userList.get(i).getOrderList().get(i).getExtra(0).getExtraName() + "     $" + userList.get(i).getOrderList().get(i).getExtra(0).getExtraPrice(), 85, 595);
+				app.text("Extra 1: " + userList.get(i).getOrderList().get(i).getExtra(0).getExtraName() + "     $" + userList.get(i).getOrderList().get(i).getExtra(0).getExtraPrice(), 85, 590);
 				app.text("Extra 2: " + userList.get(i).getOrderList().get(i).getExtra(1).getExtraName() + "     $" + userList.get(i).getOrderList().get(i).getExtra(1).getExtraPrice(), 85, 615);
 			}
 			

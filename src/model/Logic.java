@@ -2,6 +2,7 @@ package model;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -43,6 +44,7 @@ public class Logic {
 	private boolean loginSucc;
 	private PImage chips, onionRings, cheese, suero;
 	private ArrayList<User> userList;
+	private DateComparator dateComp;
 	
 	public Logic(PApplet app) {
 		this.app=app;
@@ -95,13 +97,13 @@ public class Logic {
 		case 3:
 			home.draw();
 			
-			if(!userList.get(0).getOrderList().isEmpty()) {
+			/*if(!userList.get(0).getOrderList().isEmpty()) {
 				for (int i = 0; i < userList.get(0).getOrderList().size(); i++) {
 					System.out.println(userList.get(0).getOrderList().get(i).getOrderTotal());
 				}
 				
 				//System.out.println(userList.get(0).getOrderList().size());
-				}
+				}*/
 			break;
 		case 4:
 			extra.draw();
@@ -135,7 +137,7 @@ public class Logic {
 
 				app.text(userList.get(0).getOrderList().size()-1, 121, 57);
 				
-				app.text((userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getOrderDate().toString()), 112, 495);
+				app.text((userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getOrderDate().toString()), 65, 495);
 				
 				
 				app.text("$" + userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).calculateTotal(), 257, 655);
@@ -154,9 +156,9 @@ public class Logic {
 		case 6:
 			history.draw();
 			//Lista de pedidos
-			for (int i = 0; i < userList.get(0).getOrderList().size(); i++) {
+			for (int i = 1; i < userList.get(0).getOrderList().size(); i++) {
 			app.text("Pedido #"+i+" - "+"$" + userList.get(0).getOrderList().get(i).getOrderTotal()+"\n"
-					+datePrintter.format(userList.get(0).getOrderList().get(i).getOrderDate()),138,130+(88*(i)));
+					+datePrintter.format(userList.get(0).getOrderList().get(i).getOrderDate()),138,130+(88*(i-1)));
 			}
 			break;
 
@@ -183,7 +185,7 @@ public class Logic {
 						login.clear();
 						login.hide();
 						loginSucc=true;
-						userList.get(0).newOrder("XXXXXX", date, 1,0);
+						userList.get(0).newOrder("XXXXXX", date, 8000000,0);
 					}
 				}if(!loginSucc) {
 					JOptionPane.showMessageDialog(null, "El usuario no está registrado", "Woops", JOptionPane.ERROR_MESSAGE);
@@ -380,6 +382,16 @@ public class Logic {
 			}
 			break;
 		case 6:
+			//Ordenar por valor
+			if((79<app.mouseX&&app.mouseX<79+255)&&(649<app.mouseY&&app.mouseY<649+60)) {
+				Collections.sort(userList.get(0).getOrderList());
+				System.out.println("por valor");
+			}
+			//Ordenar por fecha
+			if((79<app.mouseX&&app.mouseX<79+255)&&(726<app.mouseY&&app.mouseY<726+60)) {
+				Collections.sort(userList.get(0).getOrderList(),dateComp);
+				System.out.println("por fecha");	
+			}
 			//De History a Home
 			if((92<app.mouseX&&app.mouseX<117)&&(830<app.mouseY&&app.mouseY<857)) {
 				screen=3;	

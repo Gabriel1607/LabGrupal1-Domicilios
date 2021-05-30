@@ -2,7 +2,7 @@ package model;
 
 import java.util.Date;
 
-public class Order {
+public class Order implements Comparable<Order>{
 	private String dishName;
 	private Date orderDate;
 	private int dishPrice;
@@ -52,6 +52,12 @@ public class Order {
 
 	public void setOrderTotal(int orderTotal) {
 		this.orderTotal = orderTotal;
+	}
+
+	@Override
+	public int compareTo(Order nextOrder) {
+		// TODO Auto-generated method stub
+		return this.orderTotal - nextOrder.getOrderTotal();
 	}
 	
 }

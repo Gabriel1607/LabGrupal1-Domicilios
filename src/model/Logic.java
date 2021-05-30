@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,7 +19,8 @@ import view.RegisterScreen;
 
 public class Logic {
 	private PApplet app ;
-	private PFont font;
+	private PFont font1;
+	private PFont font2;
 	private int screen;
 	private LogInScreen login;
 	private RegisterScreen register;
@@ -37,13 +39,15 @@ public class Logic {
 	private boolean chooseBacon;
 	private boolean chooseChicken;
 	private Date date;
+	private SimpleDateFormat datePrintter;
 	private boolean loginSucc;
 	private PImage chips, onionRings, cheese, suero;
 	private ArrayList<User> userList;
 	
 	public Logic(PApplet app) {
 		this.app=app;
-		font = app.createFont("arial", 20);
+		font1 = app.createFont("arial", 20);
+		font2 = app.createFont("arial", 15);
 		screen = 1;
 		login = new LogInScreen(app);
 		register = new RegisterScreen(app);
@@ -62,6 +66,8 @@ public class Logic {
 		chooseBacon = false;
 		chooseChicken = false;
 		date = new Date();
+		datePrintter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		
 		loginSucc=false;
 		
 		chips = app.loadImage ("img/chips.png");
@@ -114,12 +120,24 @@ public class Logic {
 		case 5:
 			summary.draw();
 			
-			
-			app.textFont(font);
+			//Texto grande
+			app.textFont(font1);
 			app.fill(62,36,32);
 			for(int i = 0; i < userList.size(); i++) {
 				app.text(userList.get(i).getOrderList().size(), 121, 57);
-				app.text(userList.get(i).getOrderList().get(i).calculateTotal(), 121, 80);
+				
+				app.text(datePrintter.format(userList.get(i).getOrderList().get(i).getOrderDate()), 112, 500);
+				
+				app.text("Pedido: " + userList.get(i).getOrderList().get(i).getDishName() + "     $" + userList.get(i).getOrderList().get(i).getDishPrice(), 85, 565);
+				app.text("$" + userList.get(i).getOrderList().get(i).calculateTotal(), 130, 655);
+			}
+			
+			//Texto pequeño
+			app.textFont(font2);
+			app.fill(62,36,32);
+			for(int i = 0; i < userList.size(); i++) {
+				app.text("Extra 1: " + userList.get(i).getOrderList().get(i).getExtra(0).getExtraName() + "     $" + userList.get(i).getOrderList().get(i).getExtra(0).getExtraPrice(), 85, 595);
+				app.text("Extra 2: " + userList.get(i).getOrderList().get(i).getExtra(1).getExtraName() + "     $" + userList.get(i).getOrderList().get(i).getExtra(1).getExtraPrice(), 85, 615);
 			}
 			
 			break;

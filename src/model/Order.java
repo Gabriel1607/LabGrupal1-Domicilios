@@ -29,8 +29,8 @@ public class Order {
 		return dishPrice;
 	}
 	
-	public int getExtraPrice(int x) {
-		return extraList[x].getExtraPrice();
+	public Extra getExtra(int x) {
+		return extraList[x];
 	}
 	
 	public void addExtra1 (String en, int ep) {
@@ -40,7 +40,7 @@ public class Order {
 	public void addExtra2 (String en, int ep) {
 		extraList[1] = new Extra(en, ep);
 	}
-	
+		
 	public int calculateTotal() {
 		return extraList[0].getExtraPrice() + extraList[1].getExtraPrice() + dishPrice;
 	}

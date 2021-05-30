@@ -132,23 +132,23 @@ public class Logic {
 			//Texto grande
 			app.textFont(font1);
 			app.fill(62,36,32);
-			for(int i = 0; i < userList.size(); i++) {
-				app.text(userList.get(i).getOrderList().size(), 121, 57);
+
+				app.text(userList.get(0).getOrderList().size(), 121, 57);
 				
-				app.text(datePrintter.format(userList.get(i).getOrderList().get(i).getOrderDate()), 112, 495);
+				app.text(datePrintter.format(userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getOrderDate()), 112, 495);
 				
 				
-				app.text("$" + userList.get(i).getOrderList().get(i).calculateTotal(), 257, 655);
-			}
+				app.text("$" + userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).calculateTotal(), 257, 655);
 			
+		
 			//Texto pequeño
 			app.textFont(font2);
 			app.fill(62,36,32);
-			for(int i = 0; i < userList.size(); i++) {
-				app.text("Pedido: " + userList.get(i).getOrderList().get(userList.get(i).getOrderList().size()-1).getDishName() + "     $" + userList.get(i).getOrderList().get(0).getDishPrice(), 85, 565);
-				app.text("Extra 1: " + userList.get(i).getOrderList().get(i).getExtra(0).getExtraName() + "     $" + userList.get(i).getOrderList().get(i).getExtra(0).getExtraPrice(), 85, 590);
-				app.text("Extra 2: " + userList.get(i).getOrderList().get(i).getExtra(1).getExtraName() + "     $" + userList.get(i).getOrderList().get(i).getExtra(1).getExtraPrice(), 85, 615);
-			}
+			
+				app.text("Pedido: " + userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getDishName() + "     $" + userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getDishPrice(), 85, 565);
+				app.text("Extra 1: " + userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getExtra(0).getExtraName() + "     $" + userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getExtra(0).getExtraPrice(), 85, 590);
+				app.text("Extra 2: " + userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getExtra(1).getExtraName() + "     $" + userList.get(0).getOrderList().get(userList.get(0).getOrderList().size()-1).getExtra(1).getExtraPrice(), 85, 615);
+			
 			
 			break;
 		case 6:

@@ -6,14 +6,15 @@ public class Order {
 	private String dishName;
 	private Date orderDate;
 	private int dishPrice;
+	private int orderTotal;
 	
 	private Extra[] extraList;
 	
-	public Order(String dishName, Date orderDate, int dishPrice) {
+	public Order(String dishName, Date orderDate, int dishPrice, int orderTotal) {
 		this.dishName = dishName;
 		this.orderDate = orderDate;
 		this.dishPrice = dishPrice;
-		
+		this.orderTotal = orderTotal;
 		extraList = new Extra[2];
 	}
 
@@ -44,4 +45,13 @@ public class Order {
 	public int calculateTotal() {
 		return extraList[0].getExtraPrice() + extraList[1].getExtraPrice() + dishPrice;
 	}
+
+	public int getOrderTotal() {
+		return orderTotal;
+	}
+
+	public void setOrderTotal(int orderTotal) {
+		this.orderTotal = orderTotal;
+	}
+	
 }

@@ -162,6 +162,8 @@ public class Logic {
 			history.draw();
 			//Lista de pedidos
 			for (int i = 1; i < userList.get(0).getOrderList().size(); i++) {
+				app.textFont(font1);
+				app.fill(62,36,32);
 			app.text("Pedido #"+i+" - "+"$" + userList.get(0).getOrderList().get(i).getOrderTotal()+"\n"
 					+datePrintter.format(userList.get(0).getOrderList().get(i).getOrderDate()),138,130+(88*(i-1)));
 			}
@@ -387,12 +389,12 @@ public class Logic {
 			}
 			break;
 		case 6:
-			//Ordenar por valor no funciona
+			//Ordenar por valor 
 			if((79<app.mouseX&&app.mouseX<79+255)&&(649<app.mouseY&&app.mouseY<649+60)) {
 				Collections.sort(userList.get(0).getOrderList());
 				System.out.println("por valor");
 			}
-			//Ordenar por fecha no funciona
+			//Ordenar por fecha 
 			if((79<app.mouseX&&app.mouseX<79+255)&&(726<app.mouseY&&app.mouseY<726+60)) {
 				Collections.sort(userList.get(0).getOrderList(),dateComp);
 				System.out.println("por fecha");	

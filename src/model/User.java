@@ -2,20 +2,21 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 
 public class User {
 	private String name;
 	private String email;
 	private String password;
 	
-	private ArrayList<Order> orderList;
+	private LinkedList<Order> orderList;
 	
 	public User(String name, String email, String password) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		
-		orderList = new ArrayList<Order>();
+		orderList = new LinkedList<Order>();
 	}
 
 	public String getName() {
@@ -46,7 +47,7 @@ public class User {
 		orderList.add(new Order(dn, od, dp, ot));
 	}
 
-	public ArrayList<Order> getOrderList() {
+	public LinkedList<Order> getOrderList() {
 		return orderList;
 	}
 	

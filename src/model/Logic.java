@@ -69,6 +69,7 @@ public class Logic {
 		chooseChicken = false;
 		date = new Date();	
 		datePrintter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		dateComp = new DateComparator();
 		
 		
 		loginSucc=false;
@@ -96,6 +97,10 @@ public class Logic {
 			break;
 		case 3:
 			home.draw();
+			app.fill(242,110,82);
+			app.textSize(20);
+			app.textFont(font1);
+			app.text("¡Hola "+userList.get(0).getName()+"!",46,100);
 			
 			/*if(!userList.get(0).getOrderList().isEmpty()) {
 				for (int i = 0; i < userList.get(0).getOrderList().size(); i++) {
@@ -382,12 +387,12 @@ public class Logic {
 			}
 			break;
 		case 6:
-			//Ordenar por valor
+			//Ordenar por valor no funciona
 			if((79<app.mouseX&&app.mouseX<79+255)&&(649<app.mouseY&&app.mouseY<649+60)) {
 				Collections.sort(userList.get(0).getOrderList());
 				System.out.println("por valor");
 			}
-			//Ordenar por fecha
+			//Ordenar por fecha no funciona
 			if((79<app.mouseX&&app.mouseX<79+255)&&(726<app.mouseY&&app.mouseY<726+60)) {
 				Collections.sort(userList.get(0).getOrderList(),dateComp);
 				System.out.println("por fecha");	
